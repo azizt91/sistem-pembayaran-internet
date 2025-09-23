@@ -34,27 +34,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             contactLocationBtn.addEventListener('click', handleLocationRequest);
         }
 
-        // QRIS Modal Listeners
-        const qrisImage = document.getElementById('qris-image');
-        const qrisModal = document.getElementById('qris-modal');
-        const closeQrisModalBtn = document.getElementById('close-qris-modal');
-
-        if (qrisImage && qrisModal && closeQrisModalBtn) {
-            qrisImage.addEventListener('click', () => {
-                qrisModal.classList.remove('hidden');
-            });
-
-            closeQrisModalBtn.addEventListener('click', () => {
-                qrisModal.classList.add('hidden');
-            });
-
-            // Hide modal if backdrop is clicked
-            qrisModal.addEventListener('click', (e) => {
-                if (e.target === qrisModal) {
-                    qrisModal.classList.add('hidden');
-                }
-            });
-        }
+        
     }
 
     // ===============================================
@@ -143,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         return `🏦 *KONFIRMASI PEMBAYARAN TRANSFER*
 
-Halo Admin Selinggonet,
+Halo Admin Ayub Computer,
 
 Saya ingin mengkonfirmasi pembayaran tagihan internet:
 
@@ -159,13 +139,13 @@ Bukti transfer akan saya kirim setelah pesan ini.
 
 Terima kasih! 🙏
 
-_Pesan otomatis dari aplikasi Selinggonet_`;
+_Pesan otomatis dari aplikasi Ayub Computer_`;
     }
 
     function createLocationRequestMessage(customerName, idpl) {
         return `📍 *PERMINTAAN ALAMAT LENGKAP*
 
-Halo Admin Selinggonet,
+Halo Admin Ayub Computer,
 
 Saya ingin mendapatkan alamat lengkap untuk pembayaran langsung:
 
@@ -180,11 +160,11 @@ Mohon dikirimkan:
 
 Terima kasih! 🙏
 
-_Pesan otomatis dari aplikasi Selinggonet_`;
+_Pesan otomatis dari aplikasi Ayub Computer_`;
     }
 
     function sendWhatsAppMessage(message) {
-        const whatsappNumber = '6281914170701'; // Admin WhatsApp number
+        const whatsappNumber = '6282328074357'; // Admin WhatsApp number
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
         

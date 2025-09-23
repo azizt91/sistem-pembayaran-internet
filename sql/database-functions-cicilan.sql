@@ -1,6 +1,6 @@
 -- =====================================================
 -- DATABASE FUNCTIONS UNTUK FITUR CICILAN PEMBAYARAN
--- Selinggonet - Functions untuk Handle Cicilan
+-- Ayub Computer - Functions untuk Handle Cicilan
 -- =====================================================
 
 -- FUNCTION 1: Process Installment Payment

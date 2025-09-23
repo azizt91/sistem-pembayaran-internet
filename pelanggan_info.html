@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info Pembayaran - Selinggonet</title>
+    <title>Info Pembayaran - Ayub Computer</title>
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#f9f8fc">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Selinggonet">
-    <meta name="description" content="Informasi pembayaran tagihan internet Selinggonet">
+    <meta name="apple-mobile-web-app-title" content="Ayub Computer">
+    <meta name="description" content="Informasi pembayaran tagihan internet Ayub Computer">
     
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="512x512" href="assets/logo_512x512.png">
@@ -22,6 +22,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Manrope%3Awght%40400%3B500%3B700%3B800&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        /* Toast Notification Styles */
+        .toast {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 1000;
+            transition: bottom 0.5s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .toast.show {
+            bottom: 90px; /* Adjust based on footer height */
+        }
+        .toast.toast-success {
+            background-color: #28a745;
+        }
+        .toast.toast-error {
+            background-color: #dc3545;
+        }
+        .toast.toast-info {
+            background-color: #17a2b8;
+        }
+    </style>
 </head>
 <body>
     <div class="relative flex size-full min-h-screen flex-col bg-[#f9f8fc] group/design-root overflow-x-hidden" style='font-family: Manrope, "Noto Sans", sans-serif;'>
@@ -48,7 +77,7 @@
                         <div class="flex-1">
                             <h3 class="text-blue-900 font-semibold text-base mb-2">Cara Pembayaran</h3>
                             <div class="text-blue-800 text-sm leading-relaxed space-y-2">
-                                <p>Silakan lakukan pembayaran ke salah satu rekening atau qris yang tertera di bawah ini, kemudian klik tombol <span class="font-medium text-blue-900">Konfirmasi Pembayaran</span>.</p>
+                                <p>Silakan lakukan pembayaran ke rekening yang tertera di bawah ini, kemudian klik tombol <span class="font-medium text-blue-900">Konfirmasi Pembayaran</span>.</p>
                                 <div class="bg-white bg-opacity-60 rounded-lg p-3 mt-3 border border-blue-100">
                                     <div class="flex items-start gap-2">
                                         <div class="flex-shrink-0 w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center mt-0.5">
@@ -58,7 +87,7 @@
                                         </div>
                                         <div class="text-sm">
                                             <p class="font-medium text-gray-800 mb-1">Pembayaran Offline</p>
-                                            <p class="text-gray-700">Anda juga dapat melakukan pembayaran secara langsung di rumah <span class="font-medium">Bapak Karsadi dan Ibu Sopiyah</span>, beralamat di <span class="font-medium">Dukuh Sekiyong RT 04/RW 07, Desa Pamutih</span>.</p>
+                                            <p class="text-gray-700">Anda juga dapat melakukan pembayaran secara langsung di rumah <span class="font-medium">Mas Ayub</span>, beralamat di <span class="font-medium">Jl. Semboja Slarang Kidul</span>.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -72,16 +101,16 @@
             <div class="px-4 pb-20">
                 <!-- QRIS Card -->
                 <!-- QRIS Card -->
-                <div class="bg-white p-4 rounded-lg mb-3 border border-[#e7edf3] text-center">
+                <!-- <div class="bg-white p-4 rounded-lg mb-3 border border-[#e7edf3] text-center">
                     <p class="text-[#110e1b] text-sm font-semibold leading-normal mb-2">Pembayaran via QRIS</p>
                     <div class="flex justify-center mb-2">
                         <img id="qris-image" src="assets/qris.jpeg" alt="QRIS Code" class="w-auto h-auto max-w-xs max-h-64 object-contain rounded-md shadow-sm cursor-pointer hover:opacity-80 transition-opacity">
                     </div>
                     <p class="text-xs text-gray-500">Ketuk gambar untuk memperbesar.</p>
-                </div>
+                </div> -->
 
                 <!-- SeaBank Card -->
-                <div class="flex items-start gap-3 bg-white px-4 py-3 rounded-lg mb-3 border border-[#e7edf3]">
+                <!-- <div class="flex items-start gap-3 bg-white px-4 py-3 rounded-lg mb-3 border border-[#e7edf3]">
                     <div class="text-[#110e1b] flex items-center justify-center rounded-lg bg-[#f0f2f4] shrink-0 size-10">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
                             <path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Z"></path>
@@ -97,7 +126,7 @@
                             <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
                         </svg>
                     </button>
-                </div>
+                </div> -->
 
                 <!-- BCA Card -->
                 <div class="flex items-start gap-3 bg-white px-4 py-3 rounded-lg mb-3 border border-[#e7edf3]">
@@ -108,8 +137,8 @@
                     </div>
                     <div class="flex flex-col flex-1">
                         <p class="text-[#110e1b] text-sm font-semibold leading-normal">BCA</p>
-                        <p class="text-[#110e1b] text-sm font-normal leading-normal" id="bca-number">3621053653</p>
-                        <p class="text-[#110e1b] text-sm font-normal leading-normal">TAUFIQ AZIZ</p>
+                        <p class="text-[#110e1b] text-sm font-normal leading-normal" id="bca-number">6970259773</p>
+                        <p class="text-[#110e1b] text-sm font-normal leading-normal">MUKHAMMAD AYUB</p>
                     </div>
                     <button class="text-[#6366f1] p-2 rounded-lg bg-[#6366f1] bg-opacity-10" onclick="copyToClipboard('bca-number', this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" viewBox="0 0 256 256">
@@ -119,7 +148,7 @@
                 </div>
 
                 <!-- BSI Card -->
-                <div class="flex items-start gap-3 bg-white px-4 py-3 rounded-lg mb-3 border border-[#e7edf3]">
+                <!-- <div class="flex items-start gap-3 bg-white px-4 py-3 rounded-lg mb-3 border border-[#e7edf3]">
                     <div class="text-[#110e1b] flex items-center justify-center rounded-lg bg-[#f0f2f4] shrink-0 size-10">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
                             <path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Z"></path>
@@ -135,10 +164,10 @@
                             <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
                         </svg>
                     </button>
-                </div>
+                </div> -->
 
                 <!-- DANA Card -->
-                <div class="flex items-start gap-3 bg-white px-4 py-3 rounded-lg mb-4 border border-[#e7edf3]">
+                <!-- <div class="flex items-start gap-3 bg-white px-4 py-3 rounded-lg mb-4 border border-[#e7edf3]">
                     <div class="text-[#110e1b] flex items-center justify-center rounded-lg bg-[#f0f2f4] shrink-0 size-10">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
                             <path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Z"></path>
@@ -154,7 +183,7 @@
                             <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
                         </svg>
                     </button>
-                </div>
+                </div> -->
 
                 <!-- Confirm Payment Button -->
                 <div class="px-0 py-3">

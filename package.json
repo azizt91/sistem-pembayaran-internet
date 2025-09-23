@@ -1,5 +1,5 @@
 {
-  "name": "selinggonet-isp-management",
+  "name": "Ayub Computer-isp-management",
   "version": "1.0.1",
   "description": "ISP Customer Management System with Google Sheets Integration",
   "main": "index.html",
@@ -14,7 +14,7 @@
     "billing",
     "netlify"
   ],
-  "author": "Selinggonet",
+  "author": "Ayub Computer",
   "license": "MIT",
   "dependencies": {
     "crypto": "1.0.1",

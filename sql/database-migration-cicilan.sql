@@ -1,6 +1,6 @@
 -- =====================================================
 -- DATABASE MIGRATION UNTUK FITUR CICILAN PEMBAYARAN
--- Selinggonet - Implementasi Cicilan
+-- Ayub Computer - Implementasi Cicilan
 -- =====================================================
 
 -- STEP 1: Buat enum untuk status pembayaran yang lebih lengkap

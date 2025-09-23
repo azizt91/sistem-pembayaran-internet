@@ -57,7 +57,7 @@ class PWAInstaller {
             console.log('PWA: App installed successfully');
             this.isInstalled = true;
             this.hideInstallButton();
-            this.showSuccessMessage('Selinggonet berhasil diinstall!');
+            this.showSuccessMessage('Ayub Computer berhasil diinstall!');
         });
     }
 

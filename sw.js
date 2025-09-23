@@ -1,5 +1,5 @@
-// Service Worker untuk PWA Selinggonet
-const CACHE_NAME = 'selinggonet-v1.5.2';
+// Service Worker untuk PWA Ayub Computer
+const CACHE_NAME = 'Ayub Computer-v1.5.2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -26,7 +26,7 @@ const urlsToCache = [
   '/pelanggan_riwayat_lunas.js',
   '/pelanggan_info.js',
   '/profile.js',
-  '/assets/selinggonet.png',
+  '/assets/Ayub Computer.png',
   '/manifest.json',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
@@ -115,8 +115,8 @@ self.addEventListener('push', (event) => {
   if (event.data) {
     const options = {
       body: event.data.text(),
-      icon: '/assets/selinggonet.png',
-      badge: '/assets/selinggonet.png',
+      icon: '/assets/Ayub Computer.png',
+      badge: '/assets/Ayub Computer.png',
       vibrate: [200, 100, 200],
       data: {
         dateOfArrival: Date.now(),
@@ -125,7 +125,7 @@ self.addEventListener('push', (event) => {
     };
     
     event.waitUntil(
-      self.registration.showNotification('Selinggonet', options)
+      self.registration.showNotification('Ayub Computer', options)
     );
   }
 });

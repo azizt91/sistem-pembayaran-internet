@@ -39,7 +39,7 @@ export async function sendPaymentNotification(customerData, invoiceData, adminNa
                     `• Tanggal Bayar: ${paidDate}\n\n` +
                     `*Diproses oleh:* ${adminName}\n\n` +
                     `✅ Status tagihan telah diubah menjadi LUNAS\n\n` +
-                    `_Selinggonet Management System_`;
+                    `_Ayub Computer Management System_`;
 
     return await invokeWhatsappFunction(notificationNumber, message);
 }
@@ -77,7 +77,7 @@ export async function sendCustomerPaymentNotification(customerData, invoiceData,
 
     // Pesan tambahan untuk login
     const loginInfo = `\nAnda dapat melihat riwayat pembayaran dan status tagihan terbaru melalui dasbor pelanggan Anda.\n` +
-                      `\nLogin di:\n*http://selinggonet.netlify.app/*\n` +
+                      `\nLogin di:\n*http://Ayub Computer.netlify.app/*\n` +
                       `*- Email:* ${customerEmail}\n` +
                       `*- Password:* password\n`;
 
@@ -91,7 +91,7 @@ export async function sendCustomerPaymentNotification(customerData, invoiceData,
                   `• Status: *LUNAS*\n\n` +
                   `Terima kasih atas pembayaran Anda.` +
                   `${loginInfo}\n` + // <-- Tambahan info login
-                  `_____________________________\n*Pesan otomatis dari Selinggonet*`;
+                  `_____________________________\n*Pesan otomatis dari Ayub Computer*`;
     } else {
         message = `Konfirmasi Pembayaran Cicilan\n\nHai Bapak/Ibu ${customerData.full_name},\nID Pelanggan: ${customerData.idpl}\n\n` +
                   `✅ *Pembayaran cicilan diterima!*\n\n` +
@@ -102,7 +102,7 @@ export async function sendCustomerPaymentNotification(customerData, invoiceData,
                   `• Sisa Tagihan: *${formatter.format(invoiceData.remaining_amount)}*\n\n` +
                   `Sisa tagihan dapat Anda lunasi sebelum jatuh tempo. Terima kasih.` +
                   `${loginInfo}\n` + // <-- Tambahan info login
-                  `_____________________________\n*Pesan otomatis dari Selinggonet*`;
+                  `_____________________________\n*Pesan otomatis dari Ayub Computer*`;
     }
     // --- PERBAIKAN SELESAI ---
 

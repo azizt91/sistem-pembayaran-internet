@@ -163,8 +163,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Modal Listeners
         const paymentModal = document.getElementById('payment-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
-        const qrisTab = document.getElementById('qris-tab');
-        const transferTab = document.getElementById('transfer-tab');
         const confirmPaymentBtn = document.getElementById('confirm-payment-btn');
 
         closeModalBtn.addEventListener('click', hidePaymentModal);
@@ -173,9 +171,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                 hidePaymentModal();
             }
         });
-
-        qrisTab.addEventListener('click', () => switchPaymentTab('qris'));
-        transferTab.addEventListener('click', () => switchPaymentTab('transfer'));
 
         // Use event delegation for dynamically created pay buttons
         contentList.addEventListener('click', function(event) {
@@ -304,8 +299,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     function calculateDueDate(invoicePeriod, installationDate) {
         console.log('calculateDueDate called with:', { invoicePeriod, installationDate });
         
-        if (!installationDate || !invoicePeriod) {
-            console.log('Missing data:', { installationDate, invoicePeriod });
+        if (!invoicePeriod) {
+            console.log('Missing data:', { invoicePeriod });
             return null;
         }
         
@@ -354,18 +349,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             return null;
         }
         
-        // Get installation day
-        const installDate = new Date(installationDate);
-        if (isNaN(installDate.getTime())) {
-            console.log('Invalid installation date:', installationDate);
-            return null;
-        }
-        
-        const installDay = installDate.getDate();
-        console.log('Installation day:', installDay);
-        
-        // Create due date using installation day
-        const dueDate = new Date(parseInt(year), month - 1, installDay);
+        // Set due date to the 15th of the month
+        const dueDate = new Date(parseInt(year), month - 1, 15);
         console.log('Calculated due date:', dueDate);
         
         return dueDate.toISOString().split('T')[0]; // Return YYYY-MM-DD format
@@ -618,28 +603,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         }, 300);
     }
 
-    function switchPaymentTab(tab) {
-        const qrisTab = document.getElementById('qris-tab');
-        const transferTab = document.getElementById('transfer-tab');
-        const qrisContent = document.getElementById('qris-content');
-        const transferContent = document.getElementById('transfer-content');
-
-        if (tab === 'qris') {
-            qrisTab.classList.add('active', 'text-indigo-600', 'border-indigo-600');
-            qrisTab.classList.remove('text-gray-500');
-            transferTab.classList.remove('active', 'text-indigo-600', 'border-indigo-600');
-            transferTab.classList.add('text-gray-500');
-            qrisContent.classList.remove('hidden');
-            transferContent.classList.add('hidden');
-        } else {
-            transferTab.classList.add('active', 'text-indigo-600', 'border-indigo-600');
-            transferTab.classList.remove('text-gray-500');
-            qrisTab.classList.remove('active', 'text-indigo-600', 'border-indigo-600');
-            qrisTab.classList.add('text-gray-500');
-            transferContent.classList.remove('hidden');
-            qrisContent.classList.add('hidden');
-        }
-    }
+    
 
     async function handlePaymentConfirmation() {
         const confirmBtn = document.getElementById('confirm-payment-btn');
@@ -649,7 +613,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const customerName = currentProfile ? currentProfile.full_name : currentUser.email;
         const customerIdpl = currentProfile ? currentProfile.idpl : 'N/A';
 
-        const message = `Halo Admin Selinggonet, saya ingin mengkonfirmasi pembayaran tagihan:
+        const message = `Halo Admin Ayub Computer, saya ingin mengkonfirmasi pembayaran tagihan:
 
 - *Nama:* ${customerName}
 - *ID Pelanggan:* ${customerIdpl}

@@ -1,6 +1,6 @@
 {
-  "name": "Selinggonet",
-  "short_name": "Selinggonet",
+  "name": "Ayub Computer",
+  "short_name": "Ayub Computer",
   "description": "Sistem manajemen pelanggan ISP dengan integrasi Google Sheets",
   "start_url": "/",
   "display": "standalone",
