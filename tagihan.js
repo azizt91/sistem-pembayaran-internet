@@ -810,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Nomor WhatsApp pelanggan tidak tersedia!');
             return;
         }
-        const message = `Informasi Tagihan WiFi Anda\n\nHai Bapak/Ibu ${customerName},\nID Pelanggan: ${customerId}\n\nInformasi tagihan Bapak/Ibu bulan ini adalah:\nJumlah Tagihan: ${billAmount}\nPeriode Tagihan: ${billPeriod}\n\nBayar tagihan Anda di salah satu rekening di bawah ini:\n• BCA 697025977 An. MUKHAMMAD AYUB\n\nTerima kasih atas kepercayaan Anda menggunakan layanan kami.\n_____________________________\n*Ini adalah pesan otomatis. Jika telah membayar tagihan, abaikan pesan ini.`;
+        const message = `Informasi Tagihan WiFi Anda\n\nHai Bapak/Ibu ${customerName},\nID Pelanggan: ${customerId}\n\nInformasi tagihan Bapak/Ibu bulan ini adalah:\nJumlah Tagihan: ${billAmount}\nPeriode Tagihan: ${billPeriod}\n\nBayar tagihan Anda di salah satu rekening di bawah ini:\n• BRI 607901027400537 An. MUKHAMMAD AYUB\n\nTerima kasih atas kepercayaan Anda menggunakan layanan kami.\n_____________________________\n*Ini adalah pesan otomatis. Jika telah membayar tagihan, abaikan pesan ini.`;
         let cleanedNumber = String(whatsappNumber).replace(/[^0-9+]/g, '');
         if (!cleanedNumber.startsWith('+') && !cleanedNumber.startsWith('62')) {
             cleanedNumber = cleanedNumber.startsWith('0') ? '62' + cleanedNumber.substring(1) : '62' + cleanedNumber;
